@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Policy | DevBhoomi Safar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    nav {
+      position: relative;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav .logo span {
+      color: #ff6e40;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #ff6e40;
+    }
+
+    /* Hero Banner */
+    .hero-small-banner {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .hero-small-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .hero-small-banner h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      z-index: 1;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .policy-heading-below {
+      text-align: center;
+      margin: 40px 0 0;
+    }
+
+    .policy-heading-below h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ff6e40;
+    }
+
+    .policy-content {
+      max-width: 900px;
+      margin: 30px auto 60px;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .policy-content h2 {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .policy-content ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .policy-content p {
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #111;
+      color: #ccc;
+      padding: 40px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      flex: 1 1 250px;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #ff6e40;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-col ul li a:hover {
+      color: #ff6e40;
+    }
+
+    .footer-col .contact-info i {
+      margin-right: 8px;
+      color: #ff6e40;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">DevBhoomi<span>Safar</span></a>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#tours">Tours</a></li>
+      <li><a href="index.html#destinations">Destinations</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <div class="hero-small-banner">
+    <img src="images/booking.jpg" alt="Booking Policy Banner">
+    <h1>Booking & Refund Policy</h1>
+  </div>
+
+  <!-- Heading below -->
+  <div class="policy-heading-below">
+    <h2>Booking & Refund Policy</h2>
+  </div>
+
+  <!-- CONTENT SECTION -->
+  <div class="policy-content">
+    <p>
+      We aim to ensure your travel booking is seamless and transparent. Below are our terms for booking, cancellation, and refund.
+    </p>
+
+    <h2>Booking Confirmation</h2>
+    <ul>
+      <li>All bookings must be confirmed via email or WhatsApp.</li>
+      <li>Advance payment is required to secure your reservation.</li>
+      <li>Final itinerary will be shared after booking confirmation.</li>
+    </ul>
+
+    <h2>Payment Terms</h2>
+    <ul>
+      <li>50% advance is required at the time of booking.</li>
+      <li>Remaining 50% to be paid 1–2 days before journey start.</li>
+      <li>All payments are accepted via UPI, bank transfer, or online gateway.</li>
+    </ul>
+
+    <h2>Cancellation Policy</h2>
+    <ul>
+      <li>Cancellation 7+ days before departure: 90% refund</li>
+      <li>Cancellation within 3–6 days: 50% refund</li>
+      <li>Cancellation within 48 hours: No refund</li>
+      <li>No-shows will be charged 100% of the tour cost</li>
+    </ul>
+
+    <h2>Refund Process</h2>
+    <p>
+      Refunds (if applicable) will be processed within 5–7 working days via the original mode of payment.
+    </p>
+
+    <h2>Force Majeure</h2>
+    <p>
+      DevBhoomi Safar is not liable for delays or cancellations caused by natural calamities, strikes, or government restrictions.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For any queries regarding your booking or refund, email us at <strong>devbhoomisafar@gmail.com</strong>
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3 class="footer-logo">DevBhoomi<span>Safar</span></h3>
+        <p>Explore spiritual journeys and scenic treks across DevBhoomi Uttarakhand with expert-guided tours and customized packages.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about_us">About</a></li>
+          <li><a href="index.html#tours">Tours</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="booking-policy.html">Booking Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-info">
+          <li><i class="ri-map-pin-line"></i> Haridwar, Uttarakhand, India</li>
+          <li><i class="ri-mail-line"></i> devbhoomisafar@gmail.com</li>
+          <li><i class="ri-phone-line"></i> <a href="tel:+918595856150">+91 859•••6150</a></li>
+          <li><i class="ri-whatsapp-line"></i> <a href="https://wa.me/918595856150" target="_blank">Chat on WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 DevBhoomi Safar. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+  <title>DevBhoomi Safar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+  <div class="nav__header">
+    <div class="nav__logo">
+      <a href="#" class="logo">DevBhoomi<span>Safar</span></a>
+    </div>
+
+    <!-- 👇 Move UL inside nav__header -->
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about_us">About Us</a></li>
+      <li><a href="#tours">Tours</a></li>
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav__menu__btn" id="menu-btn">
+      <i class="ri-menu-line"></i>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="overlay">
+    <h1>DevBhoomi Safar</h1>
+    <p>Where the Divine Meets Adventure</p>
+    <a href="#about_us" class="btn">Explore Now</a>
+
+    <!-- 🧡 Move this inside .overlay -->
+    <div class="package-search-box">
+      <form id="packageSearchForm">
+        <div class="search-field">
+          <label for="search-destination">Destination</label>
+          <select id="search-destination" required>
+            <option value="">Select Destination</option>
+            <option>Kedarnath</option>
+            <option>Badrinath</option>
+            <option>Haridwar</option>
+            <option>Kainchi Dham</option>
+            <option>Rishikesh</option>
+            <option>Chitai Golu Mandir</option>
+            <option>Jageshwar Dham</option>
+            <option>Dhari Devi Temple</option>
+            <option>Nainital</option>
+            <option>Char Dham</option>
+            <option>Mussoorie</option>
+            <option>Tungnath</option>
+            <option>Mukteshwar</option>
+          </select>
+        </div>
+
+        <div class="search-field">
+          <label for="search-date">Start Date</label>
+          <input type="date" id="search-date" required />
+        </div>
+
+        <div class="search-field">
+          <label for="search-days">Duration</label>
+          <select id="search-days" required>
+            <option value="">Select Days</option>
+            <option>1-2 Days</option>
+            <option>2-3 Days</option>
+            <option>4-5 Days</option>
+            <option>6-7 Days</option>
+            <option>7+ Days</option>
+          </select>
+        </div>
+
+        <div class="search-field">
+          <label for="search-persons">Travellers</label>
+          <input type="number" min="1" max="100" id="search-persons" placeholder="e.g. 4" required />
+        </div>
+
+        <div class="search-field button-field">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+    <!-- ✅ Now it's correctly inside .overlay -->
+  </div>
+</section>
+
+ <!-- Add this wrapper -->
+<section id="about_us" class="about-section">
+  <div class="about-wrapper">
+    <div class="about-left">
+      <img src="images/kedarkantha-trek.jpeg" alt="Trek Image" />
+    </div>
+    <div class="about-right">
+      <h4>About Us</h4>
+      <h2>
+        DevBhoomi Safar – Not Just a Tour, But a Blessing<br />
+        <span class="sub-heading">Explore Mountains, Temples, and Treks Together</span>
+      </h2>
+      <p>
+        Discover the magic of DevBhoomi Uttarakhand with us! We offer personalized, budget-friendly, and unforgettable travel experiences...
+      </p>
+      <div class="about__photos">
+        <img src="images/Panchachuli-Peak.avif" alt="Resort" />
+        <img src="images/e895fcf8-5ebf-47ff-ab2f-79eaa8cb16b4_What-makes-Valley-of-Flowers-trek-ideal-for-solo-travelers.jpg" alt="Valley" />
+      </div>
+      <a href="#tours" class="about__btn">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="features__container">
+    
+    <div class="feature__item">
+      <i class="ri-shield-check-line"></i>
+      <h3>Competitive Pricing</h3>
+      <p>We offer budget-friendly tour packages without compromising on quality or experience.</p>
+    </div>
+
+    <div class="feature__item">
+      <i class="ri-medal-line"></i>
+      <h3>Best Services</h3>
+      <p>From planning to execution, our team ensures a smooth, memorable, and safe travel experience.</p>
+    </div>
+
+    <div class="feature__item">
+      <i class="ri-global-line"></i>
+      <h3>Wide Destination Coverage</h3>
+      <p>Explore Uttarakhand’s hidden gems, famous treks, and spiritual sites—all in one journey.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="tours" class="tours-section">
+  <div class="carousel-wrapper">
+    <h2 class="section-heading">Tours</h2>
+    <p class="section-subheading">Discover sacred temples, peaceful towns, and breathtaking landscapes across DevBhoomi Uttarakhand.</p>
+
+    <div class="carousel-inner">
+      <!-- Arrows -->
+      <button class="carousel-arrow left" onclick="slideLeft()">&#10094;</button>
+
+      <!-- Carousel -->
+      <div class="tour-carousel" id="tourCarousel">
+        <div class="tour-slide">
+          <img src="images/haridwar.jpg" alt="Haridwar">
+          <h3 class="tour-name">Haridwar</h3>
+        </div>
+        <div class="tour-slide">
+          <img src="images/rishikesh.jpg" alt="Rishikesh">
+          <h3 class="tour-name">Rishikesh</h3>
+        </div>
+        <div class="tour-slide">
+          <img src="images/badrinath.jpg" alt="Badrinath">
+          <h3 class="tour-name">Badrinath</h3>
+        </div>
+        <div class="tour-slide">
+          <img src="images/nainital.jpg" alt="Nainital">
+          <h3 class="tour-name">Nainital</h3>
+        </div>
+        <div class="tour-slide">
+          <img src="images/kaichidham.jpg" alt="Kainchi Dham">
+          <h3 class="tour-name">Kainchi Dham</h3>
+        </div>
+        <div class="tour-slide">
+          <img src="images/musoorie.jpg" alt="Mussoorie">
+          <h3 class="tour-name">Mussoorie</h3>
+        </div>
+
+        <div class="tour-slide">
+          <img src="images/dharidevi.jpg" alt="Dhari Devi Mandir">
+          <h3 class="tour-name">Dhari Devi Mandir</h3>
+        </div>
+
+        <div class="tour-slide">
+          <img src="images/jageshwardham.jpg" alt="Jageshwar Dham">
+          <h3 class="tour-name">Jageshwar Dham</h3>
+        </div>
+        
+        <div class="tour-slide">
+          <img src="images/mukteshwar.jpg" alt="Mukteshwar">
+          <h3 class="tour-name">Mukteshwar</h3>
+        </div>
+
+        <div class="tour-slide">
+          <img src="images/Chitaitemple.jpg" alt="Chitai Golu Mandir">
+          <h3 class="tour-name">Chitai Golu Mandir</h3>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <button class="carousel-arrow right" onclick="slideRight()">&#10095;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+
+<section id="destinations" class="destinations-section">
+
+  <!-- Heading and Subheading -->
+  <div class="section-header">
+    <h2 class="main-heading">Destinations</h2>
+    <p class="subheading">Most Popular Destinations</p>
+  </div>
+
+  <!-- Destination Cards -->
+  <div class="destination-cards">
+
+    <!-- Tungnath Trek -->
+    <div class="destination-card">
+      <img src="images/tungnath.jpg" alt="Tungnath Trek" class="destination-img">
+      <div class="destination-info">
+        <h3 class="destination-title">Tungnath Trek</h3>
+        <p class="destination-price">Starting from ₹2,999</p>
+        <a href="#" class="details-button">VIEW DETAILS</a>
+      </div>
+    </div>
+
+    <!-- Kedarnath Trek -->
+    <div class="destination-card">
+      <img src="images/Kedarnath.jpg" alt="Kedarnath Trek" class="destination-img">
+      <div class="destination-info">
+        <h3 class="destination-title">Kedarnath Trek</h3>
+        <p class="destination-price">Starting from ₹5,999</p>
+        <a href="#" class="details-button">VIEW DETAILS</a>
+      </div>
+    </div>
+
+    <!-- Char Dham Yatra -->
+    <div class="destination-card">
+      <img src="images/chardham.jpg" alt="Char Dham Yatra" class="destination-img">
+      <div class="destination-info">
+        <h3 class="destination-title">Char Dham Yatra</h3>
+        <p class="destination-price">Starting from ₹21,499</p>
+        <a href="#" class="details-button">VIEW DETAILS</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials-section">
+  <div class="section-header">
+    <h2 class="main-heading">Hear from Our Happy Clients</h2>
+    <p class="subheading">What Our Travellers Say</p>
+  </div>
+
+  <!-- Blue Background Box -->
+  <div class="testimonials-box">
+    <div class="testimonials-wrapper">
+      <button class="testi-arrow left" onclick="testiSlide(-1)">&#10094;</button>
+
+      <div class="testi-carousel" id="testiCarousel">
+        <!-- Testimonial 1 -->
+        <div class="testi-card active">
+          <p class="testi-text">“Being a solo female traveler... my biggest concern was safety. Choosing DevBhoomi... one of my best travel experiences.”</p>
+          <div class="testi-info">
+            <img src="images/preety.jpg" alt="Preety Kaur">
+            <div>
+              <h4>Preety Kaur</h4>
+              <small>Delhi</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testi-card">
+          <p class="testi-text">“Our Mussoorie–Dhanaulti trip was perfect. Comfortable hotels, expert guide, stunning scenery. Ideal honeymoon package!”</p>
+          <div class="testi-info">
+            <img src="images/mohit.jpg" alt="Mohit Aggarwal">
+            <div>
+              <h4>Mohit Aggarwal</h4>
+              <small>Noida</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testi-card">
+          <p class="testi-text">“We covered Char Dham with ease—permits, accommodation, itinerary—all managed flawlessly. Highly recommended!”</p>
+          <div class="testi-info">
+            <img src="images/sandeep.jpg" alt="Sandeep Reddy">
+            <div>
+              <h4>Sandeep Reddy</h4>
+              <small>Hyderabad</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="testi-arrow right" onclick="testiSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+  <div class="section-header">
+    <h2 class="main-heading">Gallery</h2>
+    <p class="subheading">Moments from Our Incredible Journeys</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="images/gallery1.jpg" alt="Gallery 1">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery2.jpg" alt="Gallery 2">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery3.jpg" alt="Gallery 3">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery4.jpg" alt="Gallery 4">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery5.jpg" alt="Gallery 5">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery6.jpg" alt="Gallery 6">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery7.jpg" alt="Gallery 5">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery8.jpg" alt="Gallery 6">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="section-header">
+    <h2 class="main-heading">Get in Touch With Us</h2>
+    <p class="subheading">We’re here to guide your next spiritual journey</p>
+  </div>
+
+  <div class="contact-card">
+    <!-- Left Side: About/Services -->
+    <div class="contact-about">
+      <h3>About DevBhoomi Safar</h3>
+      <p>
+        At DevBhoomi Safar, we specialize in organizing sacred pilgrimages and nature-rich journeys across Uttarakhand. From Char Dham Yatra to adventure treks, we ensure a safe, peaceful, and memorable travel experience.
+      </p>
+      <ul class="service-list">
+        <li><i class="ri-checkbox-circle-line"></i> Char Dham Yatra Packages</li>
+        <li><i class="ri-checkbox-circle-line"></i> Adventure Treks (Tungnath, Kedarkantha)</li>
+        <li><i class="ri-checkbox-circle-line"></i> Hotel & Cab Booking</li>
+        <li><i class="ri-checkbox-circle-line"></i> Customized Family & Group Tours</li>
+      </ul>
+    </div>
+
+    <!-- Right Side: Contact Form -->
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form id="contactForm" action="https://formspree.io/f/xdkzzzpo" method="POST">
+        <input type="text" placeholder="Your Name" name="name" required>
+        <input type="email" placeholder="Your Email" name="email" required>
+        <input type="tel" placeholder="Your Phone Number" name="phone" pattern="[0-9]{10}" required>
+        <textarea rows="5" placeholder="Your Message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Footer Section ======= -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Logo + About + Social Media -->
+    <div class="footer-col">
+      <h3 class="footer-logo">DevBhoomi<span>Safar</span></h3>
+      <p>
+        Your trusted travel partner for sacred pilgrimages, serene landscapes, and unforgettable adventures in Uttarakhand. 
+        Explore the divine with comfort, safety, and guidance.
+      </p>
+  
+    <!-- Social Media Icons Below -->
+    <div class="social-links">
+  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-line"></i></a>
+  <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><i class="ri-github-line"></i></a>
+  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-box-line"></i></a>
+  <a href="https://wa.me/918595856150" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line"></i></a>
+</div>
+
+  </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about_us">About Us</a></li>
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="booking&refund.html">Booking Policy</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+    </ul>
+  </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="contact-info">
+        <li><i class="ri-map-pin-line"></i> Haridwar, Uttarakhand, India</li>
+        <li><i class="ri-mail-line"></i> devbhoomisafar@gmail.com</li>
+        <li><i class="ri-phone-line"></i> +91 8595856150</li>
+        <li><i class="ri-whatsapp-line"></i> <a href="https://wa.me/918595856150" target="_blank">Chat on WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 DevBhoomi Safar. All Rights Reserved.</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
