@@ -1020,6 +1020,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 }
 
 .contact-form input,
@@ -1029,6 +1030,9 @@ nav {
   border: 1px solid #ccc;
   font-size: 1rem;
   resize: none;
+  width: 100%; /* ensure full width */
+  max-width: 100%; /* fix for overflow */
+  box-sizing: border-box;
 }
 
 .contact-form button {
@@ -1040,6 +1044,7 @@ nav {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%; /* make button full width */
 }
 
 .contact-form button:hover {
@@ -1050,7 +1055,7 @@ nav {
 @media (max-width: 768px) {
   .contact-card {
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 40px 15px;
   }
 }
 
