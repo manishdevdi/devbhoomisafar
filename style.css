@@ -76,54 +76,108 @@ nav {
   cursor: pointer;
 }
 
-/* HERO SECTION */
-.hero {
+.hero-slider {
+  position: relative;
   height: 100vh;
-  background-image: url('images/Nanda-Devi-Peak-1536x1019.avif');
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 100px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.overlay {
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-slider .overlay {
+  background-color: transparent; /* ✅ Remove the dark background */
+  padding: 0;
   text-align: center;
-  background-color: transparent;
-  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
 }
 
-.overlay h1 {
+
+.hero-slider h1 {
   font-size: 3.5rem;
   font-weight: 800;
-  color: white;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.overlay p {
-  font-size: 1rem;
-  margin-top: 25px;
-  margin-bottom: 35px;
+.hero-slider p {
+  font-size: 1.1rem;
+  margin: 25px 0 35px;
   font-style: italic;
   color: #f5f5f5;
   font-weight: 700;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.75);
 }
 
-/* Explore Button */
+.carousel-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.carousel-dots .dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff !important;  /* solid white for inactive */
+  opacity: 0.7;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  background-color: #ff6e40 !important;  /* brand orange for active */
+  opacity: 1;
+  transform: scale(1.1);   /* slight zoom for active dot */
+}
+
+.carousel-dots .dot:hover {
+  transform: scale(1.2);
+  background-color: #fff;
+  opacity: 1;
+}
+
 .btn {
   background: #ff6e40;
-  padding: 12px 28px;
+  padding: 10px 16px;  /* ⬅️ Less left-right padding */
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: bold;
   font-size: 1rem;
   transition: background 0.3s;
   margin-top: 30px;
   animation: float 2.5s ease-in-out infinite;
 }
+
+
 
 .btn:hover {
   background: #e65100;
@@ -140,46 +194,17 @@ nav {
   transform: translateX(5px);
 }
 
-/* Float animation for button */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
 
-/* Responsive: Mobile Menu */
+
 @media (max-width: 768px) {
-  .nav__links {
-    flex-direction: column;
-    gap: 15px;
-    background: rgba(0, 0, 0, 0.85);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    display: none;
-  }
-
-  .nav__links.show {
-    display: flex;
-  }
-
-  .nav__menu__btn {
-    display: block;
-  }
-
-  .overlay h1 {
+  .hero-slider h1 {
     font-size: 2.4rem;
   }
-
-  .overlay p {
+  .hero-slider p {
     font-size: 1rem;
   }
 }
+
 
 /* ------------------------- */
 /* Your existing styles here */
@@ -411,123 +436,10 @@ nav {
 }
 
 
-/* Tours Section Styling */
-.tours-section {
-  padding: 80px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-  margin-top: 60px; /* 👈 Add this line to create space above */
-}
-
-
-.tour-carousel-box {
-  background: #fff;
-  padding: 60px 20px;
-  margin: 0 auto;
-  border-radius: 20px;
-  max-width: 1200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-  position: relative;
-  overflow: hidden;
-}
-
-.tour-carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding-bottom: 30px;
-}
-
-.tour-slide {
-  min-width: 260px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.tour-slide:hover {
-  transform: translateY(-6px);
-}
-
-.tour-slide img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
-}
-
-.tour-name {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-  font-family: 'Poppins', sans-serif;
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 10px;
-}
-
-.carousel-dots .dot {
-  width: 40px;
-  height: 4px;
-  background: #ccc;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.carousel-dots .dot.active {
-  background: #ff6e40;
-}
-
-/* Arrow Buttons */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  padding: 8px 14px;
-  border-radius: 50%;
-  color: #333;
-  transition: background 0.3s ease;
-}
-
-.carousel-arrow:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.carousel-arrow.left {
-  left: 10px;
-}
-
-.carousel-arrow.right {
-  right: 10px;
-}
-
 /* === Tours Section Styling === */
 .tours-section {
-  padding: 60px 20px 60px 20px;  /* top, right, bottom, left */
-  margin-bottom: 20px; /* Reduce the bottom spacing */
+  padding: 60px 20px;
+  margin: 60px 0 20px;
   background-color: #f9f9f9;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -541,38 +453,27 @@ nav {
 }
 
 .section-subheading {
-  font-size: 1.10rem;  /* ⬅️ smaller than before */
+  font-size: 1.1rem;
   color: #555;
   margin-bottom: 40px;
-  font-weight: 600;   /* optional: makes it look subtler */
+  font-weight: 600;
 }
 
-
-/* === Carousel Container Centered === */
+/* === Carousel Container === */
 .carousel-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
 
-.carousel-inner {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
-/* === Carousel Track === */
 .tour-carousel {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 0 60px 10px; /* ⬅️ adds space left/right to fix cut-off */
-  scroll-padding-left: 60px; /* ensures first item scrolls fully into view */
-
-
+  scroll-padding-left: 60px;
+  padding: 0 60px 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -581,16 +482,17 @@ nav {
   display: none;
 }
 
-
+/* === Tour Card === */
 .tour-slide {
   flex: 0 0 auto;
-  width: 260px;
+  width: 300px;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
   scroll-snap-align: start;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .tour-slide:hover {
@@ -598,89 +500,179 @@ nav {
 }
 
 .tour-slide img {
-  width: 100%;
-  height: 240px;
+  height: 360px; /* or 320px for a taller look */
   object-fit: cover;
+  width: 100%;
   display: block;
 }
 
+
 .tour-name {
   position: absolute;
-  bottom: 15px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
-  font-size: 1.8rem;
-  font-family: 'Great Vibes', cursive;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-
-  /* 👇 These 3 lines ensure single-line display */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+/* === Overlay === */
+.tour-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.45);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  pointer-events: none; /* Prevents accidental blocking of hover */
 }
 
 
-/* === Arrows === */
+.tour-slide:hover .tour-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tour-overlay p {
+  margin: 120px 0 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* === Tour Rating === */
+.tour-rating {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: gold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tour-rating span {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* === Price Tag === */
+.tour-price {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  transform: translate(8%, -8%);
+}
+
+.tour-price::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 8px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #ff6600;
+}
+
+/* === Carousel Arrows (Clean, Small, Clickable) === */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.3rem;
-  background: rgba(255, 255, 255, 0.85);
+  font-size: 1.4rem;               /* Smaller arrow size */
+  background: none;               /* Transparent background */
   border: none;
   cursor: pointer;
-  z-index: 10;
-  padding: 6px 10px;
-  border-radius: 50%;
+  z-index: 20;
+  padding: 2px 8px;
   color: #333;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .carousel-arrow:hover {
-  background: rgba(0, 0, 0, 0.1);
+  color: #ff6e40;                 /* Optional hover color for better feedback */
 }
 
 .carousel-arrow.left {
-  left: -25px;
+  left: 10px;
 }
 
 .carousel-arrow.right {
-  right: -25px;
+  right: 10px;
 }
 
-/* === Dots === */
+/* === Carousel Dots === */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px; /* Show over bottom of image */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: none; /* So it doesn't block image hover */
+}
+
 .carousel-dots .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.2); /* inactive color */
+  background: #bbb;
   transition: background 0.3s ease;
-  cursor: pointer;
+  pointer-events: auto; /* For clickability if needed */
 }
 
 .carousel-dots .dot.active {
-  background: #000; /* active dot is solid black */
+  background: orange;
 }
 
-.carousel-dots {
+/* === Responsive: Hide arrows on mobile === */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    display: none;
+  }
+}
+
+.trusted-slider-wrapper {
+  position: relative;
   display: flex;
-  justify-content: center;
-  gap: 10px; /* spacing between dots */
-  margin-top: 20px;
+  align-items: center;
 }
 
 
-/* === Responsive Fixes === */
+/* === Responsive === */
 @media (max-width: 768px) {
   .tour-name {
     font-size: 1.3rem;
   }
 
   .tour-slide img {
-    height: 220px;
+    height: 260px;
   }
 
   .carousel-arrow {
@@ -691,6 +683,7 @@ nav {
     padding: 0 10px 10px;
   }
 }
+
 
 .destinations-section {
   padding-top: 40px; /* reduce if needed */
@@ -816,15 +809,25 @@ nav {
 }
 
 .testi-carousel {
-  position: relative;
-  height: auto;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testi-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  box-sizing: border-box;
 }
 
 .testi-card {
   display: none;
   padding: 20px;
   box-sizing: border-box;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 
 .testi-card.active {
@@ -864,28 +867,6 @@ nav {
   color: #777;
 }
 
-.testi-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fff;
-  border: none;
-  font-size: 1.3rem;
-  padding: 6px 10px;
-  border-radius: 50%;
-  color: #333;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  z-index: 2;
-}
-
-.testi-arrow.left { left: 15px; }
-.testi-arrow.right { right: 15px; }
-
-.testi-arrow:hover {
-  background: #ff6e40;
-  color: #fff;
-}
 
 .testi-dots {
   display: flex;
@@ -906,6 +887,46 @@ nav {
 .testi-dots .dot.active {
   background: #ff6e40;
 }
+
+.testi-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.client-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testi-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.testi-rating .stars {
+  color: #FFD700; /* Shiny gold */
+  font-size: 1rem;
+}
+
+.testi-rating .rating-number {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  scroll-behavior: auto !important;
+}
+
 
 @media (max-width: 768px) {
   .testi-info {
