@@ -35,13 +35,25 @@
   </div>
 </nav>
 
-<section id="home" class="hero">
-  <div class="overlay">
-    <h1>DevBhoomi Safar</h1>
-    <p>Where the Divine Meets Adventure</p>
-    <a href="#about_us" class="btn">Explore Now</a>
+<section id="home">
+  <div class="hero-slider">
+    <div class="slide active" style="background-image: url('images/Nanda-Devi-Peak-1536x1019.avif');"></div>
+    <div class="slide" style="background-image: url('images/pexels-harsh-5998375-17172530.jpg');"></div>
+    <div class="slide" style="background-image: url('images/pexels-aurisstudio-13407524.jpg');"></div>
+    <div class="slide" style="background-image: url('images/pexels-devashish-gupta-331484632-17037091.jpg');"></div>
+
+    <div class="overlay">
+      <h1>DevBhoomi Safar</h1>
+      <p>Where the Divine Meets Adventure</p>
+      <a href="#tours" class="btn">Explore Tours</a>
+    </div>
+
+
+    <div class="carousel-dots" id="heroDots"></div>
   </div>
 </section>
+
+
 
  <!-- Add this wrapper -->
 <section id="about_us" class="about-section">
@@ -96,66 +108,148 @@
     <h2 class="section-heading">Tours</h2>
     <p class="section-subheading">Discover sacred temples, peaceful towns, and breathtaking landscapes across DevBhoomi Uttarakhand.</p>
 
-    <div class="carousel-inner">
-      <!-- Arrows -->
-      <button class="carousel-arrow left" onclick="slideLeft()">&#10094;</button>
+    <div class="trusted-slider-wrapper">
 
-      <!-- Carousel -->
       <div class="tour-carousel" id="tourCarousel">
+
+        <!-- Haridwar -->
         <div class="tour-slide">
-          <img src="images/haridwar.jpg" alt="Haridwar">
+          <div class="image-container">
+            <img src="images/haridwar.jpg" alt="Haridwar">
+            <div class="tour-overlay">
+              <div class="tour-price">₹2,999</div>
+              <p>Haridwar is one of the holiest cities on the banks of Ganga.</p>
+              <div class="tour-rating">★★★★☆ <span>4.5</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Haridwar</h3>
         </div>
+
+        <!-- Rishikesh -->
         <div class="tour-slide">
-          <img src="images/rishikesh.jpg" alt="Rishikesh">
+          <div class="image-container">
+            <img src="images/rishikesh.jpg" alt="Rishikesh">
+            <div class="tour-overlay">
+              <div class="tour-price">₹3,499</div>
+              <p>Rishikesh is famous for yoga, spirituality, and adventure.</p>
+              <div class="tour-rating">★★★★★ <span>5.0</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Rishikesh</h3>
         </div>
+
+        <!-- Badrinath -->
         <div class="tour-slide">
-          <img src="images/badrinath.jpg" alt="Badrinath">
+          <div class="image-container">
+            <img src="images/badrinath.jpg" alt="Badrinath">
+            <div class="tour-overlay">
+              <div class="tour-price">₹6,999</div>
+              <p>Badrinath is one of the Char Dhams dedicated to Lord Vishnu.</p>
+              <div class="tour-rating">★★★★☆ <span>4.7</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Badrinath</h3>
         </div>
+
+        <!-- Nainital -->
         <div class="tour-slide">
-          <img src="images/nainital.jpg" alt="Nainital">
+          <div class="image-container">
+            <img src="images/nainital.jpg" alt="Nainital">
+            <div class="tour-overlay">
+              <div class="tour-price">₹4,499</div>
+              <p>Nainital is a beautiful hill station with a tranquil lake and scenic views.</p>
+              <div class="tour-rating">★★★★☆ <span>4.6</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Nainital</h3>
         </div>
+
+        <!-- Kainchi Dham -->
         <div class="tour-slide">
-          <img src="images/kaichidham.jpg" alt="Kainchi Dham">
+          <div class="image-container">
+            <img src="images/kaichidham.jpg" alt="Kainchi Dham">
+            <div class="tour-overlay">
+              <div class="tour-price">₹1,999</div>
+              <p>Kainchi Dham is a spiritual ashram dedicated to Neem Karoli Baba.</p>
+              <div class="tour-rating">★★★★☆ <span>4.8</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Kainchi Dham</h3>
         </div>
+
+        <!-- Mussoorie -->
         <div class="tour-slide">
-          <img src="images/musoorie.jpg" alt="Mussoorie">
+          <div class="image-container">
+            <img src="images/musoorie.jpg" alt="Mussoorie">
+            <div class="tour-overlay">
+              <div class="tour-price">₹3,999</div>
+              <p>Mussoorie is a charming hill station known as the Queen of Hills.</p>
+              <div class="tour-rating">★★★★☆ <span>4.4</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Mussoorie</h3>
         </div>
 
+        <!-- Mukteshwar -->
         <div class="tour-slide">
-          <img src="images/dharidevi.jpg" alt="Dhari Devi Mandir">
-          <h3 class="tour-name">Dhari Devi Mandir</h3>
-        </div>
-
-        <div class="tour-slide">
-          <img src="images/jageshwardham.jpg" alt="Jageshwar Dham">
-          <h3 class="tour-name">Jageshwar Dham</h3>
-        </div>
-        
-        <div class="tour-slide">
-          <img src="images/mukteshwar.jpg" alt="Mukteshwar">
+          <div class="image-container">
+            <img src="images/mukteshwar.jpg" alt="Mukteshwar">
+            <div class="tour-overlay">
+              <div class="tour-price">₹2,499</div>
+              <p>Mukteshwar offers panoramic Himalayan views and serene environment.</p>
+              <div class="tour-rating">★★★★☆ <span>4.2</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Mukteshwar</h3>
         </div>
 
+        <!-- Jageshwar Dham -->
         <div class="tour-slide">
-          <img src="images/Chitaitemple.jpg" alt="Chitai Golu Mandir">
+          <div class="image-container">
+            <img src="images/jageshwardham.jpg" alt="Jageshwar Dham">
+            <div class="tour-overlay">
+              <div class="tour-price">₹2,999</div>
+              <p>Jageshwar Dham is an ancient temple complex dedicated to Lord Shiva.</p>
+              <div class="tour-rating">★★★★☆ <span>4.6</span></div>
+            </div>
+          </div>
+          <h3 class="tour-name">Jageshwar Dham</h3>
+        </div>
+
+        <!-- Dhari Devi Mandir -->
+        <div class="tour-slide">
+          <div class="image-container">
+            <img src="images/dharidevi.jpg" alt="Dhari Devi Mandir">
+            <div class="tour-overlay">
+              <div class="tour-price">₹1,999</div>
+              <p>Dhari Devi is a revered temple of Goddess Kali on the Alaknanda River.</p>
+              <div class="tour-rating">★★★★☆ <span>4.3</span></div>
+            </div>
+          </div>
+          <h3 class="tour-name">Dhari Devi Mandir</h3>
+        </div>
+
+        <!-- Chitai Golu Mandir -->
+        <div class="tour-slide">
+          <div class="image-container">
+            <img src="images/Chitaitemple.jpg" alt="Chitai Golu Mandir">
+            <div class="tour-overlay">
+              <div class="tour-price">₹1,499</div>
+              <p>Chitai Golu Mandir is known for its divine justice and thousands of bells.</p>
+              <div class="tour-rating">★★★★☆ <span>4.4</span></div>
+            </div>
+          </div>
           <h3 class="tour-name">Chitai Golu Mandir</h3>
         </div>
-      </div>
 
-      <!-- Arrows -->
-      <button class="carousel-arrow right" onclick="slideRight()">&#10095;</button>
+      </div>
     </div>
 
-    <!-- Dots -->
     <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </section>
+
+
 
 
 <section id="destinations" class="destinations-section">
@@ -189,6 +283,16 @@
       </div>
     </div>
 
+    <!-- Auli -->
+    <div class="destination-card">
+      <img src="images/auli.jpg" alt="Auli" class="destination-img">
+      <div class="destination-info">
+        <h3 class="destination-title">Auli</h3>
+        <p class="destination-price">Starting from ₹8,999</p>
+        <a href="#" class="details-button">VIEW DETAILS</a>
+      </div>
+    </div>
+
     <!-- Char Dham Yatra -->
     <div class="destination-card">
       <img src="images/chardham.jpg" alt="Char Dham Yatra" class="destination-img">
@@ -204,17 +308,14 @@
 
 <section id="testimonials" class="testimonials-section">
   <div class="section-header">
-    <h2 class="main-heading">Hear from Our Happy Clients</h2>
-    <p class="subheading">What Our Travellers Say</p>
+    <h2 class="main-heading">What Our Travellers Are Saying</h2>
+    <p class="subheading">Words from Real Journeys</p>
   </div>
 
-  <!-- Blue Background Box -->
   <div class="testimonials-box">
     <div class="testimonials-wrapper">
-      <button class="testi-arrow left" onclick="testiSlide(-1)">&#10094;</button>
-
       <div class="testi-carousel" id="testiCarousel">
-        <!-- Testimonial 1 -->
+        <!-- Testimonial Cards -->
         <div class="testi-card active">
           <p class="testi-text">“Being a solo female traveler... my biggest concern was safety. Choosing DevBhoomi... one of my best travel experiences.”</p>
           <div class="testi-info">
@@ -222,11 +323,14 @@
             <div>
               <h4>Preety Kaur</h4>
               <small>Delhi</small>
+              <div class="testi-rating">
+                <span class="stars">★★★★★</span> 
+                <span class="rating-number">5.0</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
         <div class="testi-card">
           <p class="testi-text">“Our Mussoorie–Dhanaulti trip was perfect. Comfortable hotels, expert guide, stunning scenery. Ideal honeymoon package!”</p>
           <div class="testi-info">
@@ -234,11 +338,14 @@
             <div>
               <h4>Mohit Aggarwal</h4>
               <small>Noida</small>
+              <div class="testi-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.7</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
         <div class="testi-card">
           <p class="testi-text">“We covered Char Dham with ease—permits, accommodation, itinerary—all managed flawlessly. Highly recommended!”</p>
           <div class="testi-info">
@@ -246,18 +353,51 @@
             <div>
               <h4>Sandeep Reddy</h4>
               <small>Hyderabad</small>
+              <div class="testi-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.9</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <p class="testi-text">“The calm of Nainital's lake and the chill breeze in Mukteshwar gave us the break we were longing for. Thank you DevBhoomi!”</p>
+          <div class="testi-info">
+            <img src="images/anjali.webp" alt="Anjali Mehra">
+            <div>
+              <h4>Anjali Mehra</h4>
+              <small>Jaipur</small>
+              <div class="testi-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <p class="testi-text">“From river rafting in Rishikesh to peaceful evenings in Haridwar, this was the spiritual-adventure combo we never knew we needed.”</p>
+          <div class="testi-info">
+            <img src="images/vikas.jpg" alt="Vikas Sharma">
+            <div>
+              <h4>Vikas Sharma</h4>
+              <small>Chandigarh</small>
+              <div class="testi-rating">
+                  <span class="stars">★★★★☆</span>
+                  <span class="rating-number">4.5</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <button class="testi-arrow right" onclick="testiSlide(1)">&#10095;</button>
+      <!-- Dots -->
+      <div class="testi-dots" id="testiDots"></div>
     </div>
-
-    <!-- Dots -->
-    <div class="testi-dots" id="testiDots"></div>
   </div>
 </section>
+
 
 <section id="gallery" class="gallery-section">
   <div class="section-header">
