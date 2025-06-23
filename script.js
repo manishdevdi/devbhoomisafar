@@ -7,51 +7,51 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.classList.toggle("nav__active");
   });
 
+// === Active Link Highlight on Scroll ===
+  const navItems = document.querySelectorAll(".nav__links .nav-link");
+
+  function setActiveLinkOnScroll() {
+    let current = "";
+    document.querySelectorAll("section[id]").forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navItems.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  // Highlight instantly on click (helpful on mobile)
+  navItems.forEach((link) => {
+    link.addEventListener("click", () => {
+      navItems.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
+  window.addEventListener("scroll", setActiveLinkOnScroll);
+  setActiveLinkOnScroll();
+
   // === Tours Carousel ===
   const carousel = document.getElementById("tourCarousel");
   const slides = document.querySelectorAll(".tour-slide");
-  const dotsContainer = document.getElementById("carouselDots");
   let currentIndex = 0;
   let autoSlideInterval;
-
-  // Create dots
-  slides.forEach((_, index) => {
-    const dot = document.createElement("div");
-    dot.classList.add("dot");
-    if (index === 0) dot.classList.add("active");
-
-    dot.addEventListener("click", () => {
-      showSlide(index);
-      resetAutoSlide();
-    });
-
-    dotsContainer.appendChild(dot);
-  });
 
   function showSlide(index) {
     const slideWidth = slides[0].offsetWidth + 20;
     carousel.scrollTo({
       left: index * slideWidth,
-      behavior: "smooth"
+      behavior: "smooth",
     });
     currentIndex = index;
-    updateDots();
   }
-
-  function updateDots() {
-    const dots = document.querySelectorAll("#carouselDots .dot");
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[currentIndex]) dots[currentIndex].classList.add("active");
-  }
-
-  carousel.addEventListener("scroll", () => {
-    const slideWidth = slides[0].offsetWidth + 20;
-    const index = Math.round(carousel.scrollLeft / slideWidth);
-    if (index !== currentIndex) {
-      currentIndex = index;
-      updateDots();
-    }
-  });
 
   function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
@@ -65,77 +65,89 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoSlide();
   }
 
+  carousel.addEventListener("scroll", () => {
+    const slideWidth = slides[0].offsetWidth + 20;
+    const index = Math.round(carousel.scrollLeft / slideWidth);
+    if (index !== currentIndex) {
+      currentIndex = index;
+    }
+  });
+
   startAutoSlide();
 
   // === Hero Image Auto Slider ===
-  const heroSlides = document.querySelectorAll('.slide');
-  const heroDotsContainer = document.getElementById('heroDots');
+  const heroSlides = document.querySelectorAll(".slide");
+  const heroDotsContainer = document.getElementById("heroDots");
   let currentHero = 0;
 
   heroSlides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => showHeroSlide(i));
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showHeroSlide(i));
     heroDotsContainer.appendChild(dot);
   });
 
   function showHeroSlide(i) {
-    heroSlides[currentHero].classList.remove('active');
-    heroDotsContainer.children[currentHero].classList.remove('active');
+    heroSlides[currentHero].classList.remove("active");
+    heroDotsContainer.children[currentHero].classList.remove("active");
     currentHero = i;
-    heroSlides[currentHero].classList.add('active');
-    heroDotsContainer.children[currentHero].classList.add('active');
+    heroSlides[currentHero].classList.add("active");
+    heroDotsContainer.children[currentHero].classList.add("active");
+
+    // Re-trigger DevBhoomi Safar animation
+    const heroTitle = document.querySelector(".hero-title");
+    heroTitle.classList.remove("slide-in");
+    void heroTitle.offsetWidth;
+    heroTitle.classList.add("slide-in");
+
+    // Re-trigger typing effect
+    const tagline = document.querySelector(".typing-tagline");
+    if (tagline) {
+      tagline.classList.remove("stop-cursor");
+      tagline.style.animation = "none";
+      tagline.offsetHeight;
+      tagline.style.animation = "";
+      setTimeout(() => tagline.classList.add("stop-cursor"), 4000);
+    }
   }
 
   setInterval(() => {
-    let next = (currentHero + 1) % heroSlides.length;
+    const next = (currentHero + 1) % heroSlides.length;
     showHeroSlide(next);
   }, 4000);
 
-  function prevHeroSlide() {
-    let prev = (currentHero - 1 + heroSlides.length) % heroSlides.length;
-    showHeroSlide(prev);
-  }
-
-  function nextHeroSlide() {
-    let next = (currentHero + 1) % heroSlides.length;
-    showHeroSlide(next);
-  }
-
-  window.prevHeroSlide = prevHeroSlide;
-  window.nextHeroSlide = nextHeroSlide;
-
-  const heroSliderSection = document.querySelector('.hero-slider');
-  heroSliderSection.addEventListener('click', () => {
+  const heroSliderSection = document.querySelector(".hero-slider");
+  heroSliderSection.addEventListener("click", () => {
     const next = (currentHero + 1) % heroSlides.length;
     showHeroSlide(next);
   });
 
   // === Testimonials Carousel ===
   let currentTesti = 0;
-  const testiCards = document.querySelectorAll('.testi-card');
-  const testiDotsContainer = document.getElementById('testiDots');
+  const testiCards = document.querySelectorAll(".testi-card");
+  const testiDotsContainer = document.getElementById("testiDots");
   const testiCarousel = document.querySelector(".testi-carousel");
+
   testiCarousel.addEventListener("click", () => {
-  const next = (currentTesti + 1) % testiCards.length;
-  showTesti(next);
-});
+    const next = (currentTesti + 1) % testiCards.length;
+    showTesti(next);
+  });
 
   testiCards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'dot';
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => showTesti(i));
+    const dot = document.createElement("div");
+    dot.className = "dot";
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showTesti(i));
     testiDotsContainer.appendChild(dot);
   });
 
   function showTesti(idx) {
-    testiCards[currentTesti].classList.remove('active');
-    testiDotsContainer.children[currentTesti].classList.remove('active');
+    testiCards[currentTesti].classList.remove("active");
+    testiDotsContainer.children[currentTesti].classList.remove("active");
     currentTesti = idx;
-    testiCards[currentTesti].classList.add('active');
-    testiDotsContainer.children[currentTesti].classList.add('active');
+    testiCards[currentTesti].classList.add("active");
+    testiDotsContainer.children[currentTesti].classList.add("active");
   }
 
   function testiSlide(dir) {
@@ -162,9 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const response = await fetch(contactForm.action, {
           method: "POST",
           body: formData,
-          headers: {
-            Accept: "application/json"
-          }
+          headers: { Accept: "application/json" },
         });
 
         if (response.ok) {
@@ -182,30 +192,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // === Enable mouse dragging for carousels ===
+  // === Enable Drag Scroll ===
   function enableDragScroll(container) {
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    container.addEventListener('mousedown', (e) => {
+    container.addEventListener("mousedown", (e) => {
       isDown = true;
-      container.classList.add('dragging');
+      container.classList.add("dragging");
       startX = e.pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
 
-    container.addEventListener('mouseleave', () => {
+    container.addEventListener("mouseleave", () => {
       isDown = false;
-      container.classList.remove('dragging');
+      container.classList.remove("dragging");
     });
 
-    container.addEventListener('mouseup', () => {
+    container.addEventListener("mouseup", () => {
       isDown = false;
-      container.classList.remove('dragging');
+      container.classList.remove("dragging");
     });
 
-    container.addEventListener('mousemove', (e) => {
+    container.addEventListener("mousemove", (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
@@ -213,21 +223,48 @@ document.addEventListener("DOMContentLoaded", function () {
       container.scrollLeft = scrollLeft - walk;
     });
 
-    let startTouchX = 0;
-    let startTouchScroll = 0;
-
-    container.addEventListener('touchstart', (e) => {
-      startTouchX = e.touches[0].pageX;
-      startTouchScroll = container.scrollLeft;
+    container.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].pageX;
+      scrollLeft = container.scrollLeft;
     });
 
-    container.addEventListener('touchmove', (e) => {
-      const touchX = e.touches[0].pageX;
-      const walk = (touchX - startTouchX) * 1.5;
-      container.scrollLeft = startTouchScroll - walk;
+    container.addEventListener("touchmove", (e) => {
+      const x = e.touches[0].pageX;
+      const walk = (x - startX) * 1.5;
+      container.scrollLeft = scrollLeft - walk;
     });
   }
 
   enableDragScroll(document.getElementById("tourCarousel"));
   enableDragScroll(document.querySelector(".testi-carousel"));
+});
+
+// === Scroll Button with SVG Arrow Control ===
+const scrollBtn = document.getElementById("scrollToggleBtn");
+const arrowPath = document.getElementById("arrow-path"); // SVG <path> inside your button
+
+function updateScrollButton() {
+  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 10) {
+    // Bottom → show ↑
+    scrollBtn.classList.remove("down");
+    scrollBtn.classList.add("up");
+    arrowPath.setAttribute("d", "M12 8l6 6H6z"); // Up arrow
+  } else {
+    // Not bottom → show ↓
+    scrollBtn.classList.remove("up");
+    scrollBtn.classList.add("down");
+    arrowPath.setAttribute("d", "M12 16l-6-6h12z"); // Down arrow
+  }
+  scrollBtn.classList.add("show");
+}
+
+window.addEventListener("scroll", updateScrollButton);
+updateScrollButton();
+
+scrollBtn.addEventListener("click", () => {
+  if (scrollBtn.classList.contains("down")) {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 });
