@@ -1,0 +1,514 @@
+<!-- tours.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tours - DevBhoomi Safar</title>
+  <link rel="stylesheet" href="tours.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+<!-- NAVIGATION (Same as index.html) -->
+<nav>
+  <div class="nav__header">
+    <div class="nav__logo">
+      <a href="index.html" class="logo">DevBhoomi<span>Safar</span></a>
+    </div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="index.html#home" target="_blank">Home</a></li>
+      <li><a href="index.html#about_us" target="_blank">About Us</a></li>
+      <li><a href="tours.html" class="active">Tours</a></li>
+      <li><a href="index.html#destinations" target="_blank">Destinations</a></li>
+      <li><a href="index.html#gallery" target="_blank">Gallery</a></li>
+      <li><a href="index.html#contact" target="_blank">Contact</a></li>
+    </ul>
+
+    <!-- ✅ Visible only on desktop -->
+    <a href="booking.html" class="book-now-btn desktop-only" target="_blank">Book Now</a>
+
+    <div class="nav__menu__btn" id="menu-btn"><i class="ri-menu-line"></i></div>
+  </div>
+</nav>
+
+<!-- HERO SECTION FOR TOURS PAGE -->
+<section class="hero-slider single-hero" style="background-image: url('images/pexels-bohemian_heart-tanusree-218916-696974.jpg');">
+  <div class="overlay single-overlay">
+    <h1 class="hero-title slide-in"><span>Tours</span></h1>
+    <p class="typing-tagline">Discover the soul of Uttarakhand through curated travel experiences</p>
+  </div>
+</section>
+
+<!-- TOUR LIST SECTION -->
+<section id="tour-list" class="tours-page-section">
+  <div class="container">
+
+    <!-- Inquiry Search Bar -->
+<section class="inquiry-bar">
+  <form class="inquiry-form">
+    <!-- Destination Dropdown -->
+    <div class="form-group">
+      <label for="destination">Select Destination*</label>
+      <select id="destination" required>
+        <option value="" disabled selected>Select Destination</option>
+        <option>Kedarnath</option>
+        <option>Badrinath</option>
+        <option>Almora</option>
+        <option>Nainital</option>
+        <option>Jageshwar Dham</option>
+        <option>Kainchi Dham</option>
+        <option>Bhimtal</option>
+        <option>Mukteshwar</option>
+        <option>Rishikesh</option>
+        <option>Dhari Devi</option>
+        <option>Chitai Mandir</option>
+        <option>Valley of Flowers</option>
+        <option>Tungnath</option>
+        <option>Rudranath</option>
+        <option>Gopeshwar</option>
+        <option>Devprayag</option>
+        <option>Nanda Devi</option>
+        <option>Mussoorie</option>
+        <option>Kasar Devi</option>
+        <option>Jim Corbett National Park</option>
+        <option>Haridwar</option>
+      </select>
+    </div>
+
+    <!-- Travellers -->
+    <div class="form-group">
+      <label for="pax">No. of Travellers*</label>
+      <input type="number" id="pax" placeholder="e.g. 2" min="1" required />
+    </div>
+
+    <!-- Journey Date -->
+    <div class="form-group">
+      <label for="journey">Journey Date*</label>
+      <input type="date" id="journey" required />
+    </div>
+
+    <!-- Duration -->
+    <div class="form-group">
+      <label for="duration">Duration*</label>
+      <select id="duration" required>
+        <option value="" disabled selected>Select Duration</option>
+        <option>1 Day</option>
+        <option>2 Days</option>
+        <option>3 Days</option>
+        <option>4 Days</option>
+        <option>5 Days</option>
+        <option>6 Days</option>
+        <option>7+ Days</option>
+      </select>
+    </div>
+
+    <!-- Inquire Now Button -->
+    <button class="inquire-btn" onclick="window.location.href='index.html#contact'">Inquire Now</button>
+  </form>
+</section>
+
+    <h2 class="section-heading">Explore Tour Packages</h2>
+    <p class="section-subheading">Handpicked journeys across Uttarakhand</p>
+
+    <!-- PAGE 1 -->
+    <div class="tours-grid-page" id="page-1">
+      <div class="tours-grid">
+        <!-- Kedarnath -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/kedarnathtour.jpg" alt="Kedarnath">
+            <div class="tour-title-overlay">Kedarnath</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 4 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Kedarnath Yatra</h3>
+            <p class="location">📍 Kedarnath, Uttarakhand</p>
+            <p class="price-tag">From ₹9,999</p>
+          </div>
+        </div>
+
+        <!-- Badrinath -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/badrinathtour.jpg" alt="Badrinath">
+            <div class="tour-title-overlay">Badrinath</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 3 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Badrinath Yatra</h3>
+            <p class="location">📍 Badrinath, Uttarakhand</p>
+            <p class="price-tag">From ₹8,999</p>
+          </div>
+        </div>
+
+        <!-- Almora -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/almoratour.jpg" alt="Almora">
+            <div class="tour-title-overlay">Almora</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Almora Exploration</h3>
+            <p class="location">📍 Almora, Uttarakhand</p>
+            <p class="price-tag">From ₹5,499</p>
+          </div>
+        </div>
+
+        <!-- Nainital -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/nainitaltour.jpg" alt="Nainital">
+            <div class="tour-title-overlay">Nainital</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 3 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Nainital Retreat</h3>
+            <p class="location">📍 Nainital, Uttarakhand</p>
+            <p class="price-tag">From ₹6,999</p>
+          </div>
+        </div>
+
+        <!-- Jageshwar Dham -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/jageshwar-dham.webp" alt="Jageshwar Dham">
+            <div class="tour-title-overlay">Jageshwar Dham</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Jageshwar Dham Tour</h3>
+            <p class="location">📍 Almora, Uttarakhand</p>
+            <p class="price-tag">From ₹4,999</p>
+          </div>
+        </div>
+
+        <!-- Kainchi Dham -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/kainchidhamtour.jpg" alt="Kainchi Dham">
+            <div class="tour-title-overlay">Kainchi Dham</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 1 Day</div>
+          </div>
+          <div class="tour-details">
+            <h3>Kainchi Dham Visit</h3>
+            <p class="location">📍 Nainital, Uttarakhand</p>
+            <p class="price-tag">From ₹2,999</p>
+          </div>
+        </div>
+
+        <!-- Kasar Devi Mandir -->
+<div class="tour-card-new">
+  <div class="tour-image-wrapper">
+    <img src="images/kasardevitour.jpg" alt="Kasar Devi Mandir">
+    <div class="tour-title-overlay">Kasar Devi</div>
+    <div class="tour-duration"><span class="clock-icon">🕒</span> 1 Day</div>
+  </div>
+  <div class="tour-details">
+    <h3>Kasar Devi Temple Visit</h3>
+    <p class="location">📍 Almora, Uttarakhand</p>
+    <p class="price-tag">From ₹2,499</p>
+  </div>
+</div>
+
+
+        <!-- Bhimtal -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/bhimtaltour.jpg" alt="Bhimtal">
+            <div class="tour-title-overlay">Bhimtal</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Bhimtal Nature Tour</h3>
+            <p class="location">📍 Bhimtal, Uttarakhand</p>
+            <p class="price-tag">From ₹4,499</p>
+          </div>
+        </div>
+
+        <!-- Mukteshwar -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/mukteshwartour.jpg" alt="Mukteshwar">
+            <div class="tour-title-overlay">Mukteshwar</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Mukteshwar Escape</h3>
+            <p class="location">📍 Nainital, Uttarakhand</p>
+            <p class="price-tag">From ₹4,799</p>
+          </div>
+        </div>
+
+        <!-- Haridwar -->
+<div class="tour-card-new">
+  <div class="tour-image-wrapper">
+    <img src="images/haridwartour.jpg" alt="Haridwar Ganga Aarti" >
+    <div class="tour-title-overlay">Haridwar</div>
+    <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+  </div>
+  <div class="tour-details">
+    <h3>Haridwar Ganga Aarti Tour</h3>
+    <p class="location">📍 Haridwar, Uttarakhand</p>
+    <p class="price-tag">From ₹3,999</p>
+  </div>
+</div>
+
+
+        <!-- Rishikesh -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/rishikeshtour.jpg" alt="Rishikesh">
+            <div class="tour-title-overlay">Rishikesh</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+          </div>
+          <div class="tour-details">
+            <h3>Rishikesh Spiritual Tour</h3>
+            <p class="location">📍 Rishikesh, Uttarakhand</p>
+            <p class="price-tag">From ₹5,999</p>
+          </div>
+        </div>
+
+        <!-- Dhari Devi -->
+        <div class="tour-card-new">
+          <div class="tour-image-wrapper">
+            <img src="images/dharidevitour.jpg" alt="Dhari Devi">
+            <div class="tour-title-overlay">Dhari Devi</div>
+            <div class="tour-duration"><span class="clock-icon">🕒</span> 1 Day</div>
+          </div>
+          <div class="tour-details">
+            <h3>Dhari Devi Darshan</h3>
+            <p class="location">📍 Rudraprayag, Uttarakhand</p>
+            <p class="price-tag">From ₹3,499</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 2 Tours -->
+    <div class="tours-grid-page" id="page-2" style="display: none;">
+      <div class="tours-grid">
+      <!-- Chitai Golu Mandir -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/chitaimandirtour.webp" alt="Chitai Golu Mandir" loading="lazy">
+          <div class="tour-title-overlay">Chitai Mandir</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 1 Day</div>
+        </div>
+        <div class="tour-details">
+          <h3>Chitai Golu Devta Temple</h3>
+          <p class="location">📍 Almora, Uttarakhand</p>
+          <p class="price-tag">From ₹1,999</p>
+        </div>
+      </div>
+
+      <!-- Valley of Flowers -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/valleyofflowers.jpg" alt="Valley of Flowers" loading="lazy">
+          <div class="tour-title-overlay">Valley of Flowers</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 5 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Valley of Flowers Trek</h3>
+          <p class="location">📍 Chamoli, Uttarakhand</p>
+          <p class="price-tag">From ₹11,999</p>
+        </div>
+      </div>
+
+      <!-- Tungnath -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/tungnathtour.jpg" alt="Tungnath" loading="lazy">
+          <div class="tour-title-overlay">Tungnath</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Tungnath Trek</h3>
+          <p class="location">📍 Rudraprayag, Uttarakhand</p>
+          <p class="price-tag">From ₹5,499</p>
+        </div>
+      </div>
+
+      <!-- Rudranath -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/rudranath.jpg" alt="Rudranath" loading="lazy">
+          <div class="tour-title-overlay">Rudranath</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 3 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Rudranath Temple Tour</h3>
+          <p class="location">📍 Chamoli, Uttarakhand</p>
+          <p class="price-tag">From ₹6,499</p>
+        </div>
+      </div>
+
+      <!-- Gopeshwar -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/gopeshwar.jpg" alt="Gopeshwar" loading="lazy">
+          <div class="tour-title-overlay">Gopeshwar</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Gopeshwar Town Visit</h3>
+          <p class="location">📍 Chamoli, Uttarakhand</p>
+          <p class="price-tag">From ₹4,199</p>
+        </div>
+      </div>
+
+      <!-- Devprayag -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/devprayag.jpg" alt="Devprayag" loading="lazy">
+          <div class="tour-title-overlay">Devprayag</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Devprayag Sangam Tour</h3>
+          <p class="location">📍 Tehri Garhwal, Uttarakhand</p>
+          <p class="price-tag">From ₹4,499</p>
+        </div>
+      </div>
+
+      <!-- Nanda Devi Mandir (Chamoli) -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/nandadevitour.jpg" alt="Nanda Devi National Park" loading="lazy">
+          <div class="tour-title-overlay">Nanda Devi</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 3 Days</div>
+       </div>
+       <div class="tour-details">
+         <h3>Nanda Devi National Park Trek</h3>
+         <p class="location">📍 Chamoli, Uttarakhand</p>
+         <p class="price-tag">From ₹7,999</p>
+      </div>
+    </div>
+
+    <!-- Jim Corbett National Park -->
+<div class="tour-card-new">
+  <div class="tour-image-wrapper">
+    <img src="images/jimcorbett.jpg" alt="Jim Corbett National Park" loading="lazy">
+    <div class="tour-title-overlay">Jim Corbett</div>
+    <div class="tour-duration"><span class="clock-icon">🕒</span> 2 Days</div>
+  </div>
+  <div class="tour-details">
+    <h3>Jim Corbett Wildlife Safari</h3>
+    <p class="location">📍 Nainital District, Uttarakhand</p>
+    <p class="price-tag">From ₹6,499</p>
+  </div>
+</div>
+
+      <!-- Mussoorie -->
+      <div class="tour-card-new">
+        <div class="tour-image-wrapper">
+          <img src="images/mussoorietour.jpg" alt="Mussoorie" loading="lazy">
+          <div class="tour-title-overlay">Mussoorie</div>
+          <div class="tour-duration"><span class="clock-icon">🕒</span> 3 Days</div>
+        </div>
+        <div class="tour-details">
+          <h3>Mussoorie Escape</h3>
+          <p class="location">📍 Dehradun, Uttarakhand</p>
+          <p class="price-tag">From ₹7,499</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination-buttons" data-current-page="1">
+  <button class="pagination-btn prev">«</button>
+  <button class="pagination-btn">1</button>
+  <button class="pagination-btn">2</button>
+  <button class="pagination-btn next">»</button>
+</div>
+
+  </div>
+</section>
+
+
+  <!-- ======= Footer Section ======= -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Logo + About + Social Media -->
+    <div class="footer-col">
+      <h3 class="footer-logo">DevBhoomi<span>Safar</span></h3>
+      <p>
+        Your trusted travel partner for sacred pilgrimages, serene landscapes, and unforgettable adventures in Uttarakhand. 
+        Explore the divine with comfort, safety, and guidance.
+      </p>
+  
+    <!-- Social Media Icons Below -->
+    <div class="social-links">
+  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-line"></i></a>
+  <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><i class="ri-github-line"></i></a>
+  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-box-line"></i></a>
+  <a href="https://wa.me/918595856150" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line"></i></a>
+</div>
+
+  </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about_us">About Us</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="booking&refund.html">Booking Policy</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+    </ul>
+  </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="contact-info">
+        <li><i class="ri-map-pin-line"></i> Almora, Uttarakhand, India</li>
+        <li><i class="ri-mail-line"></i> devbhoomisafar@gmail.com</li>
+        <li><i class="ri-phone-line"></i> +91 8595856150</li>
+        <li><i class="ri-whatsapp-line"></i> <a href="https://wa.me/918595856150" target="_blank">Chat on WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 DevBhoomi Safar. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<!-- SCROLL BUTTON (Same as index.html) -->
+<button id="scrollToggleBtn" class="scroll-btn down show">
+  <svg width="24" height="36" fill="white" viewBox="0 0 24 24">
+    <path id="arrow-path" d="M12 16l-6-6h12z"></path>
+  </svg>
+</button>
+
+<div class="sticky-book-now">
+  <a href="booking.html" target="_blank">Book Now</a>
+</div>
+
+<!-- JS -->
+<script src="tours.js"></script>
+</body>
+</html>
