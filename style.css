@@ -10,35 +10,36 @@ html {
   scroll-behavior: smooth;  /* ✅ Add this here */
 }
 
+section {
+  scroll-margin-top: 60px;  /* adjust this value based on your nav height */
+}
 
 body {
   background-color: #fff;
   color: #333;
 }
 
-/* NAVIGATION BAR */
+/* === NAVIGATION BAR === */
 nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   z-index: 1000;
-  padding: 10px 30px;
 }
 
+/* Container for logo, links, and hamburger */
 .nav__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px 30px;
+  position: relative;
 }
 
-.nav__links {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
+/* LOGO */
 .nav__logo .logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -50,11 +51,14 @@ nav {
   color: #ff6e40;
 }
 
+/* NAV LINKS - Desktop */
 .nav__links {
   display: flex;
-  gap: 25px;
+  gap: 30px;
   list-style: none;
-  margin-top: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav__links li a {
@@ -68,13 +72,131 @@ nav {
   color: #ff6e40;
 }
 
-/* Hamburger Icon */
+.nav__links li a.active {
+  color: #ff6e40;
+  font-weight: bold;
+  position: relative;
+}
+
+.nav__links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6e40;
+}
+
+/* HAMBURGER ICON */
 .nav__menu__btn {
   display: none;
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
 }
+
+/* === MOBILE STYLES === */
+@media (max-width: 768px) {
+  .nav__menu__btn {
+    display: block;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    padding: 20px 0;
+    transform: none; /* remove desktop centering for mobile */
+  }
+
+  .nav__links.nav__active {
+    display: flex;
+  }
+
+  .nav__links li a {
+    font-size: 1.2rem;
+  }
+
+  .nav__links li {
+    margin: 0;
+  }
+}
+
+/* === HERO TITLE SLIDE-IN ANIMATION === */
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Add this class only when you want to trigger the animation */
+.hero-title.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.tagline-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typing-tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0ch;
+  text-align: center;
+  margin: 0 auto;
+  border-right: 3px solid transparent; /* Start transparent */
+  animation: typing 4s steps(34) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+    border-right: 3px solid #ff6e40; /* Show cursor while typing */
+  }
+  to {
+    width: 34ch; /* Adjust for your full text */
+    border-right: 0; /* Remove cursor after typing */
+  }
+}
+
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ff6e40; }
+}
+
+/* After typing ends – stop blink, keep full text */
+.typing-tagline.done {
+  animation: none !important;
+  border-right: none !important;
+  width: 34ch !important; /* Ensures full text stays */
+}
+
 
 .hero-slider {
   position: relative;
@@ -132,6 +254,7 @@ nav {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.75);
 }
 
+/* === Common Carousel Dots (for Testimonials or Tours) === */
 .carousel-dots {
   position: absolute;
   bottom: 30px;
@@ -143,25 +266,45 @@ nav {
 }
 
 .carousel-dots .dot {
-  width: 20px;
+  width: 10px;
   height: 20px;
   border-radius: 50%;
-  background-color: #ffffff !important;  /* solid white for inactive */
+  background-color: #ffffff !important;
   opacity: 0.7;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .carousel-dots .dot.active {
-  background-color: #ff6e40 !important;  /* brand orange for active */
+  background-color: #ff6e40 !important;
   opacity: 1;
-  transform: scale(1.1);   /* slight zoom for active dot */
+  transform: scale(1.1);
 }
 
 .carousel-dots .dot:hover {
   transform: scale(1.2);
   background-color: #fff;
   opacity: 1;
+}
+
+/* === Specific: Hero Section Dot Size Fix === */
+#heroDots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+#heroDots .dot.active {
+  background-color: #ff6e40;
+  opacity: 1;
+}
+
+#heroDots .dot:hover {
+  opacity: 0.9;
 }
 
 .btn {
@@ -215,8 +358,11 @@ nav {
 /* Responsive Navigation */
 .nav__links {
   display: flex;
+  gap: 40px;
   list-style: none;
-  gap: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav__menu__btn {
@@ -260,9 +406,9 @@ nav {
 /* --- Updated About Section Styles Start --- */
 
 .about-section {
-  padding: 80px 20px;
+  padding: 40px 20px 30px; /* reduced bottom padding */
   background-color: #f9f9f9;
-  margin-top: 60px; /* 👈 This creates space between hero and about */
+  margin-top: 10px; /* optional, reduce if space above is too much */
 }
 
 .about-wrapper {
@@ -300,7 +446,7 @@ nav {
 }
 
 .about-right h4 {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   /* text-transform: uppercase; */  /* ❌ Remove or comment this */
   color: #ff6e40;                  /* ✅ Bright orange */
   font-weight: 600;
@@ -347,7 +493,7 @@ nav {
 
 .about__btn {
   background-color: #007bff;
-  color: white;
+  color: rgb(244, 239, 239);
   padding: 10px 24px;
   text-decoration: none;
   border-radius: 8px;
@@ -394,7 +540,7 @@ nav {
 }
 
 .features {
-  padding: 30px 10px 10px 10px;  /* top padding reduced from default */
+  padding: 40px 10px 20px 10px;  /* top padding reduced from default */
   margin-top: 0; /* ensure no margin on top */
   background-color: #f9f9f9;
 }
@@ -417,7 +563,7 @@ nav {
 
 .feature__item i {
   color: #ff6e40;
-  font-size: 6rem;
+  font-size: 4.5rem;
   margin-bottom: 6px;
   display: inline-block;
 }
@@ -439,11 +585,12 @@ nav {
 /* === Tours Section Styling === */
 .tours-section {
   padding: 60px 20px;
-  margin: 60px 0 20px;
+  margin: 10px 0 20px; /* reduced top margin from 60px to 20px */
   background-color: #f9f9f9;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
+
 
 .section-heading {
   font-size: 1.8rem;
@@ -599,64 +746,6 @@ nav {
   border-top: 5px solid #ff6600;
 }
 
-/* === Carousel Arrows (Clean, Small, Clickable) === */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.4rem;               /* Smaller arrow size */
-  background: none;               /* Transparent background */
-  border: none;
-  cursor: pointer;
-  z-index: 20;
-  padding: 2px 8px;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.carousel-arrow:hover {
-  color: #ff6e40;                 /* Optional hover color for better feedback */
-}
-
-.carousel-arrow.left {
-  left: 10px;
-}
-
-.carousel-arrow.right {
-  right: 10px;
-}
-
-/* === Carousel Dots === */
-.carousel-dots {
-  position: absolute;
-  bottom: 15px; /* Show over bottom of image */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
-  pointer-events: none; /* So it doesn't block image hover */
-}
-
-.carousel-dots .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #bbb;
-  transition: background 0.3s ease;
-  pointer-events: auto; /* For clickability if needed */
-}
-
-.carousel-dots .dot.active {
-  background: orange;
-}
-
-/* === Responsive: Hide arrows on mobile === */
-@media (max-width: 768px) {
-  .carousel-arrow {
-    display: none;
-  }
-}
 
 .trusted-slider-wrapper {
   position: relative;
@@ -672,11 +761,7 @@ nav {
   }
 
   .tour-slide img {
-    height: 260px;
-  }
-
-  .carousel-arrow {
-    display: none;
+    height: 360px;
   }
 
   .tour-carousel {
@@ -686,8 +771,8 @@ nav {
 
 
 .destinations-section {
-  padding-top: 40px; /* reduce if needed */
-  margin-top: 20px; /* ensure clean alignment */
+  padding-top: 30px; /* reduce if needed */
+  margin-top: 0px; /* ensure clean alignment */
   background: #f7faff;
 }
 
@@ -775,7 +860,8 @@ nav {
 }
 
 .testimonials-section {
-  padding: 60px 20px;
+  padding: 90px 20px 70px; /* increased top & bottom padding */
+  margin-top: 10px; /* ensure clean alignment */
   background-color: #f7faff;
   text-align: center;
 }
@@ -938,7 +1024,7 @@ nav {
 }
 
 .gallery-section {
-  padding: 60px 20px;
+  padding: 20px 20px;
   background-color: #fff;
   text-align: center;
 }
@@ -964,7 +1050,7 @@ nav {
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
+  height: 250px;
   display: block;
   object-fit: cover;
   transition: 0.3s ease;
@@ -984,7 +1070,7 @@ nav {
 }
 
 .contact-section {
-  padding: 60px 20px;
+  padding: 40px 20px;
   background-color: #f7faff;
   text-align: center;
 }
@@ -992,43 +1078,51 @@ nav {
 .contact-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 0;
   justify-content: space-between;
   max-width: 1100px;
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  padding: 40px;
+  padding: 30px 20px;
 }
 
 .contact-about,
 .contact-form {
   flex: 1 1 500px;
   text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
+/* Headings */
 .contact-about h3,
 .contact-form h3 {
   color: #ff6e40;
-  margin-bottom: 20px;
+  margin: 0 0 15px;
+  font-size: 1.4rem;
+  margin-top: 5px
 }
 
+/* Paragraph */
 .contact-about p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #444;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.8;
+  margin: 0 0 15px;
 }
 
+/* Service list */
 .service-list {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .service-list li {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
   color: #333;
 }
 
@@ -1037,11 +1131,14 @@ nav {
   margin-right: 8px;
 }
 
+/* Form fields */
 .contact-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-form input,
@@ -1051,8 +1148,7 @@ nav {
   border: 1px solid #ccc;
   font-size: 1rem;
   resize: none;
-  width: 100%; /* ensure full width */
-  max-width: 100%; /* fix for overflow */
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -1065,27 +1161,43 @@ nav {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%; /* make button full width */
+  width: 100%;
 }
 
 .contact-form button:hover {
   background-color: #e65328;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-card {
-    flex-direction: column;
-    padding: 40px 15px;
-  }
-}
-
+/* Status Message */
 .form-status {
   margin-top: 10px;
   font-size: 0.95rem;
   font-weight: 500;
   display: none;
 }
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 15px 30px;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    padding: 10px 10px;
+  }
+
+  .contact-about,
+  .contact-form {
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-form h3 {
+    margin-top: 0px; /* subtle gap from above list */
+  }
+}
+
 
 .site-footer {
   background-color: #1a1a1a;
@@ -1099,14 +1211,17 @@ nav {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 40px;
+  padding: 60px 40px 20px;
 }
 
 .footer-col {
-  flex: 1 1 200px;
-  min-width: 200px;
+  flex: 1 1 250px;
+  min-width: 220px;
+  text-align: left; /* change to 'center' if you prefer that */
 }
+
 
 
 .footer-logo {
@@ -1151,11 +1266,15 @@ nav {
   color: #ff6e40;
 }
 
-.contact-info i {
-  margin-right: 8px;
-  color: #ff6e40;
-  font-size: 1rem;
+.contact-info li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
 }
+/* Align footer columns with logo heading */
+.footer-col:not(:first-child) {
+  margin-top: 10px; /* Adjust this value as needed (e.g., 10px–20px) */
+}
+
 
 /* --- Social Media Icons --- */
 .social-links {
@@ -1214,3 +1333,131 @@ nav {
   }
 }
 
+/* === SCROLL TOGGLE BUTTON === */
+.scroll-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff6e40;
+  border: none;
+  border-radius: 50%;
+  width: 45px;        /* was 55px */
+  height: 45px;       /* was 55px */
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow-icon {
+  width: 20px;         /* was 28px */
+  height: 20px;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.scroll-btn.down .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.scroll-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-btn {
+    display: block; /* keep it */
+  }
+}
+
+.nav__center {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* reduce spacing between menu and button */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-now-btn {
+  background-color: #ff6e40;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: background 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #e65a2f;
+}
+
+.book-now-mobile {
+  display: none;
+}
+
+.desktop-only {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .book-now-btn {
+    display: none;
+  }
+}
+
+
+.sticky-book-now {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff6e40;
+  text-align: center;
+  z-index: 999;
+  padding: 12px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-book-now a {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.sticky-book-now a:hover {
+  color: #ffe;
+}
+
+/* Optional: Hide on large desktop (if nav already has it) */
+@media (min-width: 1025px) {
+  .sticky-book-now {
+    display: none;
+  }
+}
+
+.map-container {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
