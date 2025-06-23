@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,24 +15,25 @@
   <nav>
   <div class="nav__header">
     <div class="nav__logo">
-      <a href="#" class="logo">DevBhoomi<span>Safar</span></a>
+      <a href="index.html" class="logo">DevBhoomi<span>Safar</span></a>
     </div>
 
-    <!-- 👇 Move UL inside nav__header -->
     <ul class="nav__links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about_us">About Us</a></li>
-      <li><a href="#tours">Tours</a></li>
-      <li><a href="#destinations">Destinations</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <li><a href="#home" class="nav-link">Home</a></li>
+  <li><a href="#about_us" class="nav-link">About Us</a></li>
+  <li><a href="tours.html" target="_blank">Tours</a></li>
+  <li><a href="#destinations" class="nav-link">Destinations</a></li>
+  <li><a href="#gallery" class="nav-link">Gallery</a></li>
+  <li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
 
-    <div class="nav__menu__btn" id="menu-btn">
-      <i class="ri-menu-line"></i>
-    </div>
+    <!-- ✅ Visible only on desktop -->
+    <a href="booking.html" class="book-now-btn desktop-only" target="_blank">Book Now</a>
+
+    <div class="nav__menu__btn" id="menu-btn"><i class="ri-menu-line"></i></div>
   </div>
 </nav>
+
 
 <section id="home">
   <div class="hero-slider">
@@ -43,8 +43,10 @@
     <div class="slide" style="background-image: url('images/pexels-devashish-gupta-331484632-17037091.jpg');"></div>
 
     <div class="overlay">
-      <h1>DevBhoomi Safar</h1>
-      <p>Where the Divine Meets Adventure</p>
+      <h1 class="hero-title slide-in">DevBhoomi <span>Safar</span></h1>
+      <div class="tagline-container">
+         <p class="typing-tagline">Where the Divine Meets Adventure</p>
+      </div>
       <a href="#tours" class="btn">Explore Tours</a>
     </div>
 
@@ -74,7 +76,7 @@
         <img src="images/Panchachuli-Peak.avif" alt="Resort" />
         <img src="images/e895fcf8-5ebf-47ff-ab2f-79eaa8cb16b4_What-makes-Valley-of-Flowers-trek-ideal-for-solo-travelers.jpg" alt="Valley" />
       </div>
-      <a href="#tours" class="about__btn">Book Now</a>
+      <a href="about.html" class="about__btn" target="_blank">View More</a>
     </div>
   </div>
 </section>
@@ -245,7 +247,7 @@
       </div>
     </div>
 
-    <div class="carousel-dots" id="carouselDots"></div>
+  
   </div>
 </section>
 
@@ -269,7 +271,7 @@
       <div class="destination-info">
         <h3 class="destination-title">Tungnath Trek</h3>
         <p class="destination-price">Starting from ₹2,999</p>
-        <a href="#" class="details-button">VIEW DETAILS</a>
+        <a href="tungnath.html" class="details-button" target="_blank">VIEW DETAILS</a>
       </div>
     </div>
 
@@ -279,7 +281,7 @@
       <div class="destination-info">
         <h3 class="destination-title">Kedarnath Trek</h3>
         <p class="destination-price">Starting from ₹5,999</p>
-        <a href="#" class="details-button">VIEW DETAILS</a>
+        <a href="kedarnath.html" class="details-button" target="_blank">VIEW DETAILS</a>
       </div>
     </div>
 
@@ -289,7 +291,7 @@
       <div class="destination-info">
         <h3 class="destination-title">Auli</h3>
         <p class="destination-price">Starting from ₹8,999</p>
-        <a href="#" class="details-button">VIEW DETAILS</a>
+        <a href="auli.html" class="details-button" target="_blank">VIEW DETAILS</a>
       </div>
     </div>
 
@@ -299,7 +301,7 @@
       <div class="destination-info">
         <h3 class="destination-title">Char Dham Yatra</h3>
         <p class="destination-price">Starting from ₹21,499</p>
-        <a href="#" class="details-button">VIEW DETAILS</a>
+        <a href="chardhamyatra.html" class="details-button" target="_blank">VIEW DETAILS</a>
       </div>
     </div>
 
@@ -469,6 +471,21 @@
   </div>
 </section>
 
+<!-- Map Section Start -->
+<div class="map-container">
+  <h3 style="text-align:center; margin-bottom:10px;">📍Where are we located?</h3>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3444.305810872296!2d79.65211197455537!3d29.597263575170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0a058fd56e5ed%3A0x85459d4f7e3f01f7!2sAlmora%2C%20Uttarakhand%20263101!5e0!3m2!1sen!2sin!4v1717158081123!5m2!1sen!2sin"
+    width="100%"
+    width="100%" height="350"
+    style="border:0;"
+    border-radius: 10px;
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 <!-- ======= Footer Section ======= -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -497,7 +514,7 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about_us">About Us</a></li>
-        <li><a href="#tours">Tours</a></li>
+        <li><a href="tours.html" target="_blank">Tours</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
     </div>
@@ -517,7 +534,7 @@
     <div class="footer-col">
       <h4>Contact Us</h4>
       <ul class="contact-info">
-        <li><i class="ri-map-pin-line"></i> Haridwar, Uttarakhand, India</li>
+        <li><i class="ri-map-pin-line"></i> Almora, Uttarakhand, India</li>
         <li><i class="ri-mail-line"></i> devbhoomisafar@gmail.com</li>
         <li><i class="ri-phone-line"></i> +91 8595856150</li>
         <li><i class="ri-whatsapp-line"></i> <a href="https://wa.me/918595856150" target="_blank">Chat on WhatsApp</a></li>
@@ -530,6 +547,20 @@
     <p>&copy; 2025 DevBhoomi Safar. All Rights Reserved.</p>
   </div>
 </footer>
+
+<!-- Scroll Toggle Button -->
+<button id="scrollToggleBtn" class="scroll-btn down show">
+  <svg width="24" height="36" fill="white" viewBox="0 0 24 24">
+    <path id="arrow-path" d="M12 16l-6-6h12z"></path>
+  </svg>
+</button>
+
+
+<div class="sticky-book-now">
+  <a href="booking.html" target="_blank">Book Now</a>
+</div>
+
+
 
   <script src="script.js"></script>
 </body>
