@@ -1,0 +1,525 @@
+/* about.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;  /* ✅ Add this here */
+}
+
+section {
+  scroll-margin-top: 60px;  /* adjust this value based on your nav height */
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+
+/* === NAVIGATION BAR === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* Container for logo, links, and hamburger */
+.nav__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  position: relative;
+}
+
+/* LOGO */
+.nav__logo .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav__logo .logo span {
+  color: #ff6e40;
+}
+
+/* NAV LINKS - Desktop */
+.nav__links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav__links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav__links li a.active {
+  color: #ff6e40; /* or any highlight color */
+  font-weight: bold;
+  position: relative;
+}
+
+.nav__links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6e40;
+}
+
+.nav__links li a:hover {
+  color: #ff6e40;
+}
+
+/* HAMBURGER ICON */
+.nav__menu__btn {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* === MOBILE STYLES === */
+@media (max-width: 768px) {
+  .nav__menu__btn {
+    display: block;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    padding: 20px 0;
+    transform: none; /* remove desktop centering for mobile */
+  }
+
+  .nav__links.nav__active {
+    display: flex;
+  }
+
+  .nav__links li a {
+    font-size: 1.2rem;
+  }
+
+  .nav__links li {
+    margin: 0;
+  }
+}
+
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-title.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 40px;
+  padding: 60px 40px 20px;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  min-width: 220px;
+  text-align: left; /* change to 'center' if you prefer that */
+}
+
+
+
+.footer-logo {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-logo span {
+  color: #ff6e40;
+}
+
+.footer-col h4 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ff6e40;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+/* Align footer columns with logo heading */
+.footer-col:not(:first-child) {
+  margin-top: 10px; /* Adjust this value as needed (e.g., 10px–20px) */
+}
+
+
+/* --- Social Media Icons --- */
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 1.5rem;
+  text-decoration: none;      /* ✅ Removes underline */
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff6e40;
+}
+
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-col {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .footer-col ul {
+    padding-left: 0;
+  }
+
+  .footer-col:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+/* === SCROLL TOGGLE BUTTON === */
+.scroll-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff6e40;
+  border: none;
+  border-radius: 50%;
+  width: 45px;        /* was 55px */
+  height: 45px;       /* was 55px */
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow-icon {
+  width: 20px;         /* was 28px */
+  height: 20px;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.scroll-btn.down .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.scroll-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-btn {
+    display: block; /* keep it */
+  }
+}
+
+.nav__center {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* reduce spacing between menu and button */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-now-btn {
+  background-color: #ff6e40;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: background 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #e65a2f;
+}
+
+.book-now-mobile {
+  display: none;
+}
+
+.desktop-only {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .book-now-btn {
+    display: none;
+  }
+}
+
+/* === MAIN CONTENT === */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  color: #ff6e40;
+  margin: 30px 0 15px;
+}
+
+.container p {
+  text-align: justify;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+
+/* ====== HERO SECTION ====== */
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* better than fill */
+  filter: brightness(75%);
+  z-index: -1;
+  position: relative;
+}
+
+.hero-title {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.8rem;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  animation: slideIn 1s ease-out forwards;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Slide in from bottom */
+@keyframes slideIn {
+  0% {
+    transform: translate(-50%, 20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+
+.hero h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.8rem;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.sticky-book-now {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff6e40;
+  text-align: center;
+  z-index: 999;
+  padding: 12px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-book-now a {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.sticky-book-now a:hover {
+  color: #ffe;
+}
+
+/* Optional: Hide on large desktop (if nav already has it) */
+@media (min-width: 1025px) {
+  .sticky-book-now {
+    display: none;
+  }
+}
+
+/* ====== MAIN CONTENT ====== */
+.policy-heading-below {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.policy-heading-below h2 {
+  font-size: 2rem;
+  color: #ff6e40;
+  margin-bottom: 20px;
+}
+
+.policy-content {
+  max-width: 900px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+}
+
+.policy-content h2 {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.policy-content p {
+  margin-top: 16px;
+  font-size: 1rem;
+}
+
+.policy-content ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.policy-content li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
